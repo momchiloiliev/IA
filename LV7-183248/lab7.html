@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dj Gear Store</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script>
+        var players = [
+            {
+                code: 7,
+                model: "Pioneer CDJ 2000",
+                image: "",
+                price: 1600,
+                edit: false
+            },
+            {
+                code: 777,
+                model: "Pioneer CDJ 1000",
+                image: "",
+                price: 1000,
+                edit: false
+            },
+            {
+                code: 7777,
+                model: "Pioneer CDJ 800",
+                image: "",
+                price: 990,
+                edit: false
+            }
+
+        ];
+
+        var mixers = [
+            {
+                code: 230,
+                model: "Pioneer DJM 2000",
+                image: "",
+                price: 2300,
+                edit: false
+            },
+            {
+                code: 420,
+                model: "Pioneer DJM 1000",
+                image: "",
+                price: 1800,
+                edit: false
+            },
+            {
+                code: 970,
+                model: "Pioneer DJM 800",
+                image: "",
+                price: 1600,
+                edit: false
+            }
+
+        ];
+    </script>
+    <style>
+        * {
+            font-family: Verdana;
+        }
+        h1{
+            margin-top: 0px !important;
+        }
+        ul
+        {
+            list-style-type: none !important;
+        }
+        li span {
+
+            display: block;
+            margin-top: 15px;
+        }
+
+        .listItem {
+            width: 35%;
+            height:50px;
+            text-align: center;
+            cursor: crosshair;
+
+        }
+        .global_navigation {
+            width: 40%;
+            background: #1f1f1f;
+            color: white;
+            font-size: 25px;
+            font-family: Verdana, sans-serif;
+        }
+
+        .global_nav_button {
+            padding: 5px;
+            background: #8f8f8f;
+        }
+
+        .active {
+            padding: 5px;
+            background: #2e2e2e;
+            cursor: pointer;
+            color: #FE2E2E;
+        }
+        .global_nav_button:hover{
+
+            background: #2e2e2e;
+            cursor: pointer;
+            color: #FE2E2E;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="global_navigation">
+
+    <span class="global_nav_button active" id="players_button">Players</span>
+    <span class="global_nav_button" id="mixers_button">Mixers</span>
+    <span class="global_nav_button" id="basket_button">Basket</span>
+
+</div>
+
+<div class="main_content">
+    <div id="players">
+        <ul id="pleeri">
+        </ul>
+    </div>
+
+    <div id="mixers">
+        <ul id="mikseri">
+        </ul>
+    </div>
+
+    <div id="basket">
+        <h3> Shoping basket </h3>
+        <ul id = "basketList">
+            <li> <span> Fill me up! </span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="global_navigation"> FINKI Dj Gear Store </div>
+
+<script>
+    var current = 1;
+
+    $("#players").show();
+    $("#mixers").hide();
+
+    $.each(players, function(index, item){
+        $("#pleeri").append("<li>" + item.code + " " + item.model + " " + item.price + "</li>");
+    });
+
+    $.each(mixers, function(index, item){
+        $("#mikseri").append("<li>" + item.code + " " + item.model + " " + item.price + "</li>");
+    });
+
+    $("#players_button").click(function () {
+        if(current == 1){
+            return;
+        }
+        else{
+            $("#players_button").removeClass("global_nav_button");
+            $("#players_button").addClass("global_nav_button active");
+            if(current == 2){
+                $("#mixers_button").removeClass("global_nav_button active");
+                $("#mixers_button").addClass("global_nav_button");
+            }
+            else if(current == 3){
+                $("#basket_button").removeClass("global_nav_button active");
+                $("#basket_button").addClass("global_nav_button");$("#players").hide();
+                $("#mixers").show();
+            }
+            current = 1;
+            $("#players").show();
+            $("#mixers").hide();
+        }
+    });
+
+    $("#mixers_button").click(function () {
+        if(current == 2){
+            return;
+        }
+        else{
+            $("#mixers_button").removeClass("global_nav_button");
+            $("#mixers_button").addClass("global_nav_button active");
+            if(current == 1){
+                $("#players_button").removeClass("global_nav_button active");
+                $("#players_button").addClass("global_nav_button");
+            }
+            else if(current == 3){
+                $("#basket_button").removeClass("global_nav_button active");
+                $("#basket_button").addClass("global_nav_button");
+            }
+            current = 2;
+            $("#players").hide();
+            $("#mixers").show();
+        }
+    });
+
+    $("#basket_button").click(function () {
+        if(current == 3){
+            return;
+        }
+        else{
+            $("#basket_button").removeClass("global_nav_button");
+            $("#basket_button").addClass("global_nav_button active");
+            if(current == 1){
+                $("#players_button").removeClass("global_nav_button active");
+                $("#players_button").addClass("global_nav_button");
+            }
+            else if(current == 2){
+                $("#mixers_button").removeClass("global_nav_button active");
+                $("#mixers_button").addClass("global_nav_button");
+            }
+            current = 3;
+            $("#players").hide();
+            $("#mixers").hide();
+        }
+    });
+
+    $("#pleeri, #mikseri").sortable({
+        connectWith: "#basketList"
+    });
+    $("#basketList").sortable();
+</script>
+
+</body>
+
+</html>

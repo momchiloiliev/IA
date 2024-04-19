@@ -1,0 +1,78 @@
+<!Doctype html>
+<html>
+<head>
+    <title>3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <meta charset="utf-8" />
+    <script>
+        $(document).ready(function() {
+            var kniga_dialog = $("#dialog-form").dialog({
+                autoOpen: false,
+                buttons : [
+                    {
+                        text : 'Dodaj kniga',
+                        click : function() {
+                            $name=$("#name").val();
+                            $avtor=$("#avtor").val();
+                            $kom=$("#komentar").val();
+
+                            $red = "<tr><td>"+$name+"</td><td>"+$avtor+"</td><td>"+$kom+"</td></tr>";
+
+                            $("#t1").append($red);
+
+                            $( this ).dialog( "close" );
+
+                        },
+                    },
+                    {
+                        text : "Otkazi",
+                        click : function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+                ]
+            })
+
+
+            $("#btn-nova-kniga").click(function() {
+                kniga_dialog.dialog('open');
+
+            })
+        })
+    </script>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<div id="dialog-form" title="Dodaj kniga">
+    <p class="validateTips">All form fields are required.</p>
+
+    <form>
+        <fieldset>
+            <label for="name">Naslov</label>
+            <input type="text" name="name" id="name"  class="text ui-widget-content ui-corner-all">
+            <label for="name">Avtor</label>
+            <input type="text" name="avtor" id="avtor"  class="text ui-widget-content ui-corner-all">
+            <label for="name">Komentar</label>
+            <textarea id="komentar"></textarea>
+
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
+</div>
+
+<input type="button" id="btn-nova-kniga" value="Add" style="width:100px"></input>
+<table id="t1">
+    <tr>
+        <th>Naslov</th>
+        <th>Avtor</th>
+        <th>Komentar</th>
+    </tr>
+</table>
+</body>
+</html>

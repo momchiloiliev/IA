@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2b</title>
+</head>
+<style>
+    li{
+        font-weight:bold;
+        color: #0000FF;
+    }
+</style>
+<body>
+<script src="jquery-3.4.1.js"></script>
+<ul id="list">
+    <li>Logo-Photo</li>
+    <ol type="I">
+        <li>url - thumbnail: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+        <li>url-icon: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+        <li>url-default: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+    </ol>
+    <li>Header-Photo</li>
+    <ol type="I">
+        <li>url - thumbnail: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+        <li>url-icon: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+        <li>url-default: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+    </ol>
+    <li>Footer-Photo</li>
+    <ol type="I">
+        <li>url - thumbnail: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+        <li>url-icon: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+        <li>url-default: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+    </ol>
+    <li>Main-Photo</li>
+    <ol type="I">
+        <li>url - thumbnail: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+        <li>ur-icon: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+        <li>url-default: www.sth.com/GAVassdfSJFKBAFsadfdsg</li>
+    </ol>
+</ul>
+<button type="button" onclick="changeColor()"> Change </button>
+<!--<input type="button" onclick="return changeColor()" name="Change" value="Change">-->
+<script>
+    function changeColor() {
+        $("ol > li").css({
+            "color": "black",
+            "font-weight": "normal"
+        });
+    }
+</script>
+</body>
+</html>

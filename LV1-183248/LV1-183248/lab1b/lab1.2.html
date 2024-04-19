@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> X-Factor</title>
+    <style>
+        td{
+            padding-top: 0.5em;
+        }
+    </style>
+</head>
+<body>
+<h1>Форма за пријавување на Х-Factor</h1>
+
+<form name="MyForm" onsubmit="return popup()" method="post">
+
+    <table>
+        <tr>
+            <td>Име: </td>
+            <td><input type="text" name="vre"></td>
+        </tr>
+        <tr>
+            <td>Уметничко име: </td>
+            <td><input type="text" name="vre"></td>
+        </tr>
+        <tr>
+            <td>Пол: </td>
+                <td><input type="radio" name="vre" id="male" value="male">Машко
+                <input type="radio" name="vre" id="female" value="female">Женско
+                </td>
+        </tr>
+        <tr>
+            <td>Жанр:</td>
+            <td><select id = "genre" style = "width: 90%">
+                <option value="Класична Музика">Classical Music</option>
+                <option value="Популарна">Popular Music</option>
+                <option value="Рок">Rock Music</option>
+                <option value="Рап">Rap Music</option>
+            </select></td>
+        </tr>
+    </table>
+    <button type="submit" value="Submit">Пријави се</button>
+
+</form>
+<script type="text/javascript">
+    function popup(){
+        var x;
+        x=document.forms["MyForm"]["vre"].value;
+        if( x==""){
+            alert("Сите полиња се задолжителни");
+            return false;
+        }
+        else{
+            alert("Успешно се пријавивте");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#tabs" ).tabs();
+        });
+    </script>
+<style>
+    #container{
+    /*border: solid red 4px;*/
+        width: 800px;
+    }
+    #tabs-1,#tabs-2,#tabs-3 {
+        background-color: aqua;
+    }
+    #tabs{
+        background-color: yellow;
+    }
+    li{
+        list-style: none;
+        background-color: moccasin;
+        width: 30px;
+        padding: 5px 40px 5px 5px;
+        display: inline;
+        border: solid 1px #c3c3c3;
+        margin-left: -20px;
+        margin-right:40px;
+        text-decoration: none;
+    }
+    a{
+        text-decoration: none;
+    }
+
+</style>
+</head>
+<body>
+<div id="container">
+    <div id="tabs">
+        <h2>Custom Tab</h2>
+
+    <ul>
+        <li><a href="#tabs-1">Open start</a></li>
+        <li><a href="#tabs-2">Connect</a></li>
+        <li><a href="#tabs-3">Pin apps</a></li>
+    </ul>
+    <div id="tabs-1">
+        <p>Windows 10 is currently available as Technical Preview which means that there are still a lot of issues and bugs
+            which need fixing before the Operating System gets ready for use by consumers. Some users using the Windows 10 Technical
+            Preview (build 9926) are facing an odd issue where the Start Menu (and Cortana/Search) would not work/open anymore,
+            no matter if they click on the Start Button, Press the Windows key on the keyboard or press Ctrl + Esc. System Restore seems to
+            be the cause of this error, but there can be more. Anyways, here’s how to sort it out.</p>
+    </div>
+    <div id="tabs-2">
+        <p>connect ‎(third-person singular simple present connects, present participle connecting, simple past and past participle
+            connected)
+            (intransitive, of an object) To join (to another object): to attach, or to be intended to attach or capable of attaching, to another object.
+            I think this piece connects to that piece over there.
+            (intransitive, of two objects) To join: to attach, or to be intended to attach or capable of attaching, to each other.
+            Both roads have the same name, but they don't connect: they're on opposite sides of the river, and there's no bridge there.
+            (transitive, of an object) To join (two other objects), or to join (one object) to (another object): to be a link between two objects, thereby attaching them to each other.  [quotations ▼]
+            The new railroad will connect the northern part of the state to the southern part.
+            (transitive, of a person) To join (two other objects), or to join (one object) to (another object): to take one object and attach it to another.
+            I connected the printer to the computer, but I couldn't get it work.
+            To join an electrical or telephone line to a circuit or network.
+            When the technician connects my house, I'll be able to access the internet.
+            To associate.
+            I didn't connect my lost jewelry with the news of an area cat burglar until the police contacted me.
+            To make a travel connection; to switch from one means of transport to another as part of the same trip.
+            I'm flying to London where I connect with a flight heading to Hungary..</p>
+    </div>
+    <div id="tabs-3">
+        <p>On Windows Phone, you can pin just about anything you want to your Start screen—apps, albums, map locations, favorite websites,
+            OneNote notes, contacts, and a lot more. When you pin a contact to Start, you'll get all of that person's feed updates
+            right from their Tile, and you can call them with just two taps. Tons of other apps and websites also come with Live Tile support,
+            so you don't even have to open an app to see notifications or other real time info.</p>
+        <p>You can pin any of the following items to Start by tapping and holding, then tapping Pin to start.
+
+            Apps or games from the App list,
+            Photo albums from the Photos Hub,
+            Office files or places,
+            OneNote notes,
+            Email folders,
+            f you'd like to move a Tile somewhere else on Start, tap and hold the Tile, and then move it wherever you'd like.
+            To remove a Tile, tap and hold it, and then tap Unpin  Unpin icon.
+            To resize a Tile, tap and hold it, and then tap Resize  Resize icon until the Tile changes to the size you want.</p>
+    </div>
+    </div>
+</div>
+</body>
+</html>

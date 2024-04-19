@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca1</title>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            var clix = 1;
+            var first, second;
+            var totalClix=0, totalPoints=0;
+
+            $('#content_container').children('div').find('p').each(function(){
+                if(($(this).text())%2 == 0){
+                    $(this).parents('.live_tile').css('border','2px solid red');
+                }
+            });
+
+            $('#content_container').children('div').hover(function(){
+                    $(this).toggleClass('live_tile_hover');
+                },
+                function(){
+                    $(this).toggleClass('live_tile_hover');
+                });
+
+            $('#content_container').children('div').click(function(){
+
+                if(totalPoints==8){
+
+                    $('#per').text(parseFloat((totalPoints/totalClix)*100) + '%');
+                    $('#perc').css('display','inline');
+                    alert("F i n i t o");
+                    var con = confirm("Do you wanna play new game?");
+                    if (con) {
+                        location.reload();
+                    };
+                    return;
+                }
+
+                if(clix==3){
+                    $(first).find('p').toggle();
+                    $(second).find('p').toggle();
+                    clix=1;
+                    first=null;
+                    second=null;
+                }
+
+                if(clix==1){
+                    first = $(this);
+                    $(this).find('p').toggle();
+                    //$(this).off('click');
+                }
+
+                if(clix==2){
+                    second = $(this);
+                    $(this).find('p').toggle();
+
+                    if( (first.find('span').attr('title')) == (second.find('span').attr('title')) ){
+                        $(first).css('background','gray');
+                        $(first).css('pointer-events','none');
+                        $(second).css('background','gray');
+                        $(second).css('pointer-events','none');
+                        clix=1;
+                        first=null;
+                        second=null;
+                        totalPoints++;
+                        $('#totalPoints').text(totalPoints);
+                        totalClix++;
+                        $('#totalClix').text(totalClix);
+                    }else{
+                        clix++;
+                        totalClix++;
+                        $('#totalClix').text(totalClix);
+                    }
+
+                } else{
+                    clix++;
+                    totalClix++;
+                    $('#totalClix').text(totalClix);
+                }
+
+            });
+            // END click() func
+
+        });
+    </script>
+
+    <style>
+        #content_container {
+            width: 490px;
+            height: 450px;
+        }
+        .live_tile {
+
+            color: white;
+            background:  linear-gradient(#1E5799, #7db9e8);
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            border: 2px solid #000;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            font-size: 30px;
+        }
+
+        .live_tile_hover{
+            background:  linear-gradient(#669900, #666633);
+        }
+
+        .passed {
+            width: 100px;
+            height: 100px;
+            background: grey;
+            cursor: auto;
+            color: white;
+            margin: 5px;
+            border: 2px solid #000;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            font-size: 30px;
+        }
+
+        span {
+            display: inline-block;
+            font-size: 20px;
+            margin-top:20px;
+        }
+        p {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content_container">
+    <div class="live_tile"> <p> 1 </p> <span title="1"> Carl Cox </span> </div>
+    <div class="live_tile"> <p> 2 </p> <span title="5"> Ferry Corsten </span></div>
+    <div class="live_tile"> <p> 3 </p> <span title="4"> Armin Van Burren </span></div>
+    <div class="live_tile"> <p> 4 </p> <span title="3"> Avicii </span></div>
+    <div class="live_tile"> <p> 5 </p> <span title="7"> Hardwell </span></div>
+    <div class="live_tile"> <p> 6 </p> <span title="6"> Tiesto </span></div>
+    <div class="live_tile"> <p> 7 </p> <span title="2"> Calvin Harris </span></div>
+    <div class="live_tile"> <p> 8 </p> <span title="3"> Avicii </span></div>
+    <div class="live_tile"> <p> 9 </p> <span title="8"> Sven Vath </span></div>
+    <div class="live_tile"> <p> 10 </p> <span title="4"> Armin Van Burren </span></div>
+    <div class="live_tile"> <p> 11 </p> <span title="5"> Ferry Corsten </span></div>
+    <div class="live_tile"> <p> 12 </p> <span title="7"> Hardwell </span></div>
+    <div class="live_tile"> <p> 13 </p> <span title="6"> Tiesto </span></div>
+    <div class="live_tile"> <p> 14 </p> <span title="2"> Calvin Harris </span></div>
+    <div class="live_tile"> <p> 15 </p> <span title="1"> Carl Cox </span></div>
+    <div class="live_tile"> <p> 16 </p> <span title="8"> Sven Vath </span></div>
+</div>
+
+Total clicks: <span id='totalClix'>0</span><br/>
+Total points: <span id='totalPoints'>0</span><br/>
+<p style='display:none;' id='perc'>Your percentage ranking is: <span id='per'> </span></p>
+</body>
+</html>

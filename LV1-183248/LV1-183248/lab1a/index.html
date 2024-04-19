@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Countdown timer</title>
+</head>
+<style>
+    span{
+        font-weight: bold;
+    }
+</style>
+<body style="margin: 0px" onload="updateClock(); setInterval('updateClock()', 1000 )">
+    <div style="text-align: center; margin-top: 25vh; height: 75vh">
+<!--            <span style="font-size: xx-large"> Time remaining: </span>-->
+            <br>
+            <span id = "hours" style="font-size: 300px">00</span>
+            <span style="font-size: 300px">:</span>
+            <span id = "minutes" style="font-size: 300px">00</span>
+            <span style="font-size: 300px">:</span>
+            <span id = "seconds" style="font-size: 300px">00</span>
+    </div>
+    <script type="text/javascript">
+        function updateClock() {
+            var dateNow = new Date();
+
+            var h = 23 - dateNow.getHours();
+            var m = 59 - dateNow.getMinutes();
+            var s = 59 - dateNow.getSeconds();
+            var hh = "" + h;
+            var mm = "" + m;
+            var ss = "" + s;
+            if(h<10){
+                hh= "0" + h;
+            }
+            if(m<10){
+                mm= "0" + m;
+            }
+            if(s<10){
+                ss= "0" + s;
+            }
+            document.getElementById("hours").innerHTML = hh;
+            document.getElementById("minutes").innerHTML = mm;
+            document.getElementById("seconds").innerHTML = ss;
+
+        }
+    </script>
+    </body>
+</html>

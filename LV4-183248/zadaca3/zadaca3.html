@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca3</title>
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+            var availableTags = [
+                    {
+                        value: "avatar",
+                        label: "Avatar",
+                        desc: "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home."
+                    },
+                    {
+                        value: "batman",
+                        label: "BatMan",
+                        desc: "Batman is a fictional superhero appearing in American comic books published by DC Comics. "
+                    } ,
+                    {
+                        value: "spiderman",
+                        label: "SpiderMan",
+                        desc: "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family."
+                    },
+                    {
+                        value: "joker",
+                        label: "Joker",
+                        desc: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker."
+                    },
+                    {
+                        value: "homealone",
+                        label: "Home Alone",
+                        desc: "An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation."
+                    }
+                    ];
+
+                $("#tags").autocomplete({
+                    source: availableTags,
+                    focus: function( event, ui ) {
+                        $( "#tags" ).val( ui.item.label );
+                        return false;
+                    },
+                    select: function( event, ui ) {
+                        $( "#tags" ).val( ui.item.label );
+                        $( "#tags-description" ).html( ui.item.desc );
+                        return false;
+                    }
+
+                })
+        .autocomplete( "instance" )._renderItem = function( ul, item ) {
+            return $( "<li>" )
+                .append( "<div>" + item.label + "<br>" + item.desc+ "</div>" )
+                .appendTo( ul );
+        };
+        });
+    </script>
+
+
+</head>
+<body>
+    <div class="ui-widget">
+        <label for="tags">Select a movie:</label>
+        <input id="tags">
+    </div>
+</body>
+</html>
